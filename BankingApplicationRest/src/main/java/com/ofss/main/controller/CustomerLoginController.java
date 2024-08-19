@@ -10,23 +10,32 @@ import com.ofss.main.domain.CustomerDetails;
 import com.ofss.main.domain.LoginDetails;
 import com.ofss.main.service.CustomerLoginService;
 import com.ofss.main.service.CustomerRegistrationService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("/login")
 public class CustomerLoginController {
     @Autowired
 	private CustomerLoginService customerLoginService;
+    @CrossOrigin
     @PostMapping("create")
 	public LoginDetails createLogin(@RequestBody LoginDetails loginDetails) {
 		return customerLoginService.addNewLogin(loginDetails);
 	}
+    @CrossOrigin
     @PostMapping("login")
 	public LoginDetails login(@RequestBody LoginDetails loginDetails) {
 		return customerLoginService.loginByIdAndPassword(loginDetails.getLoginId(), loginDetails.getLoginPassword());
+		
+//		{
+//		    "loginId": "abhinav.rastogi@oracle.com",
+//		    "loginPassword": "abhinav123"
+//		}
 	}
     @GetMapping("login/{login_id}")
     public LoginDetails getLoginDetails(@PathVariable String login_id) {

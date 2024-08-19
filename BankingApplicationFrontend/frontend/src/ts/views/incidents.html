@@ -1,0 +1,27 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <div>
+    <h1 style="text-align: center;">REGISTRATION PAGE</h1>
+    <h3>Enter your details</h3>
+    <oj-c-form-layout columns="3" rows="3">
+      <oj-c-input-text label-hint="First Name" value="{{customerFirstName}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="Last Name" value="{{customerLastName}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="Address" value="{{customerAddress}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="City" value="{{customerCity}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="State" value="{{customerState}}"></oj-c-input-text>
+      <oj-c-input-number label-hint="Zip" value="{{customerZip}}"></oj-c-input-number>
+      <oj-c-input-text label-hint="Phone No" value="{{customerPhoneNo}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="Email Id" value="{{customerEmail}}"></oj-c-input-text>
+    </oj-c-form-layout> 
+    <h3>Set your ID and Password</h3>
+    <oj-c-form-layout columns="2" rows="2">
+      <oj-c-input-text label-hint="Login Id" value="{{loginId}}"></oj-c-input-text>
+      <oj-c-input-password label-hint="Password" value="{{loginPassword}}"></oj-c-input-password>
+    </oj-c-form-layout>
+    <oj-c-button id="button2" label="Submit" on-oj-action="[[registerClick]]"></oj-c-button>
+  </div>
+</div>

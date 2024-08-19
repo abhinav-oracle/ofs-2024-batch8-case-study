@@ -1,0 +1,16 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Admin</h1>
+  <h3>Get Customer Details</h3>
+  <oj-c-input-text label-hint="Customer-ID" value="{{customerId}}"></oj-c-input-text>
+  <oj-c-button id="button3" label="Submit" on-oj-action="[[getClick]]"></oj-c-button>
+  <h3>Delete Customer</h3>
+  <oj-c-input-text label-hint="Customer-ID" value="{{customerId}}"></oj-c-input-text>
+  <oj-c-button id="button4" label="Submit" on-oj-action="[[deleteClick]]"></oj-c-button>
+  <div>
+  </div>
+</div>

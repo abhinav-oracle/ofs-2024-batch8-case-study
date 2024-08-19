@@ -1,5 +1,6 @@
 package com.ofss.main.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 //@Table(name="bank_customer")
@@ -29,12 +31,14 @@ public class CustomerDetails {
 //    @Column(name="customer_zip")
     private int customerZip;
 //    @Column(name="customer_phone_no")
-    private int customerPhoneNo;
+    private String customerPhoneNo;
 //    @Column(name="customer_email")
     private String customerEmail;
     
-    @OneToOne()
-    @JoinColumn(name = "customer_login_id")
+    //@Transient
+    //@Column(name = "customer_login_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name="customer_login_id")
     private LoginDetails loginId;
     
     public CustomerDetails(){
@@ -42,7 +46,7 @@ public class CustomerDetails {
     }
 
 	public CustomerDetails(int customerId, String customerFirstName, String customerLastName, String customerAddress,
-			String customerCity, String customerState, int customerZip, int customerPhoneNo, String customerEmail, LoginDetails loginId) {
+			String customerCity, String customerState, int customerZip, String customerPhoneNo, String customerEmail, LoginDetails loginId) {
 		super();
 		this.customerId = customerId;
 		this.customerFirstName = customerFirstName;
@@ -112,11 +116,11 @@ public class CustomerDetails {
 		this.customerZip = customerZip;
 	}
 
-	public int getCustomerPhoneNo() {
+	public String getCustomerPhoneNo() {
 		return customerPhoneNo;
 	}
 
-	public void setCustomerPhoneNo(int customerPhoneNo) {
+	public void setCustomerPhoneNo(String customerPhoneNo) {
 		this.customerPhoneNo = customerPhoneNo;
 	}
 

@@ -1,10 +1,13 @@
 package com.ofss.main.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 @Entity
@@ -18,10 +21,22 @@ public class LoginDetails {
     @Column(name="login_attempts")
     private int loginAttempts;
     @Column(name="login_status")
-    private String loginStatus;
+    private String loginStatus = "ACTIVE";
+
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "loginId")
+//    private CustomerDetails customerDetails;
+//    
+//public CustomerDetails getCustomerDetails() {
+//		return customerDetails;
+//	}
+//
+//
+//	public void setCustomerDetails(CustomerDetails customerDetails) {
+//		this.customerDetails = customerDetails;
+//	}
 
 
-//    public LoginDetails(String username, String password, int customerId) {
+	//    public LoginDetails(String username, String password, int customerId) {
 //        this.username = username;
 //        this.password = password;
 //        this.customerId = customerId;
